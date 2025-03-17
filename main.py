@@ -3,15 +3,16 @@ import asyncio
 from asyncio import WindowsSelectorEventLoopPolicy
 from telegram import Bot
 from telegram.constants import ParseMode
-import re
-import json
+from dotenv import load_dotenv
 
-# Telegram Bot credentials
-bot_token = 'YOUR_BOT_TOKEN'
-channel_username = '-1001234567890'
 
-# Path to the root folder containing videos
-root_folder = r'E:\torrent\Pluralsight - vSphere 7'
+load_dotenv()
+
+# Get configuration from environment variables
+bot_token = os.getenv('TELEGRAM_BOT_TOKEN')
+channel_username = os.getenv('TELEGRAM_CHANNEL_USERNAME')
+root_folder = os.getenv('VIDEO_ROOT_FOLDER')
+
 
 # List of video extensions to look for
 video_extensions = ['.mp4', '.avi', '.mov', '.mkv', '.wmv', '.flv', '.webm', '.m4v', '.3gp']
